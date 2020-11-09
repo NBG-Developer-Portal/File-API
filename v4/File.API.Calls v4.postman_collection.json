@@ -206,7 +206,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}}\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": {{parent_folder_id}}\r\n}",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}}\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": \"{{parent_folder_id}}\"\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -295,7 +295,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}} Updated\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": {{parent_folder_id}}\r\n}",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}} Updated\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": \"{{parent_folder_id}}\"\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -675,7 +675,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"fileName\": \"Updated_{{file_name}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"fileIcon\": {{file_icon}},\r\n  \"folderId\": {{folder_id}},\r\n  \"useFolderId\" : false\r\n}",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"fileName\": \"Updated_{{file_name}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"fileIcon\": {{file_icon}},\r\n  \"folderId\": \"{{folder_id}}\",\r\n  \"useFolderId\" : false\r\n}",
 							"options": {
 								"raw": {}
 							}
@@ -1438,7 +1438,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n      \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"UserID\": \"{{user_id}}\",\n        \"FileFormat\": \"xml\"\n    }\n}",
+							"raw": "{\n      \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"UserID\": \"{{user_id}}\",\n        \"FileFormat\": \"{{file_format}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1491,7 +1491,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"account\": \"04054685740\",\n        \"fileId\": \"{{file_id}}\",\n        \"fileType\": \"CSV\",\n        \"isPayRoll\": false        \n    }\n}\n",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"account\": \"04054685740\",\n        \"fileId\": \"{{file_id}}\",\n        \"fileType\": \"{{file_format}}\",\n        \"isPayRoll\": false        \n    }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"

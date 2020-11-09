@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "7b81c094-4ed4-494e-b120-9a3f02697845",
-		"name": "File.API.Calls v4",
+		"_postman_id": "c5db1b09-5c1e-4bb8-b5b4-768aec92f38b",
+		"name": "File.API.Calls.v4",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "192433f3-33e6-473b-b05c-99101db4feb0",
+								"id": "54b7530f-f881-436e-a08a-51c744ab220a",
 								"exec": [
 									""
 								],
@@ -175,6 +175,286 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Folders",
+			"item": [
+				{
+					"name": "Create Folder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_Id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}}\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": {{parent_folder_id}}\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/folders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Folders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Requester",
+								"value": "{{requester_registry}}:{{requester_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Subject",
+								"value": "{{subject_registry}}:{{subject_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/folders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"folders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Folder",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "client-id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}} Updated\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": {{parent_folder_id}}\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/folders/{{folder_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"folders",
+								"{{folder_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Folder",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Requester",
+								"value": "{{requester_registry}}:{{requester_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Subject",
+								"value": "{{subject_registry}}:{{subject_id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/folders/{{folder_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"folders",
+								"{{folder_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Share Folder",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canAdd\": false,\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"folders",
+								"{{folder_id}}",
+								"share",
+								"{{shared_user_registry}}",
+								"{{shared_user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Share Folder",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "requester",
+								"value": "{{requester_registry}}:{{requester_id}}",
+								"type": "text"
+							},
+							{
+								"key": "subject",
+								"value": "{{subject_registry}}:{{subject_id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"folders",
+								"{{folder_id}}",
+								"share",
+								"{{shared_user_registry}}",
+								"{{shared_user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Files",
 			"item": [
 				{
@@ -206,7 +486,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderId\": \"{{folder_id}}\",\r\n  \"fileName\": \"{{file_name}}\",\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileSize\": {{file_size}},\r\n  \"metadata\": \"{{metadata}}\",\r\n  \"fileIcon\": {{file_icon}}\r\n}"
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderId\": null,\r\n  \"fileName\": \"{{file_name}}\",\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileSize\": {{file_size}},\r\n  \"metadata\": \"{{metadata}}\",\r\n  \"fileIcon\": null\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/files/upload-initiation",
@@ -395,55 +675,11 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"fileName\": \"Updated_{{file_name}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"fileIcon\": {{file_icon}},\r\n  \"folderId\": \"{{folder_id}}\",\r\n  \"useFolderId\" : false\r\n}",
+							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"fileName\": \"Updated_{{file_name}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"fileIcon\": {{file_icon}},\r\n  \"folderId\": {{folder_id}},\r\n  \"useFolderId\" : false\r\n}",
 							"options": {
 								"raw": {}
 							}
 						},
-						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"files",
-								"{{file_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete File",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Requester",
-								"value": "{{requester_registry}}:{{requester_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Subject",
-								"value": "{{subject_registry}}:{{subject_id}}",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
 						"url": {
 							"raw": "{{url}}/files/{{file_id}}",
 							"host": [
@@ -496,6 +732,50 @@
 							"path": [
 								"files",
 								"status",
+								"{{file_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete File",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Requester",
+								"value": "{{requester_registry}}:{{requester_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Subject",
+								"value": "{{subject_registry}}:{{subject_id}}",
+								"type": "text"
+							},
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/files/{{file_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"files",
 								"{{file_id}}"
 							]
 						}
@@ -689,286 +969,6 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Folders",
-			"item": [
-				{
-					"name": "Get Folders",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Requester",
-								"value": "{{requester_registry}}:{{requester_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Subject",
-								"value": "{{subject_registry}}:{{subject_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/folders",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"folders"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Folder",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_Id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}}\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": \"{{parent_folder_id}}\"\r\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/folders",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"folders"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Folder",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"type": "text",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "Request-Id",
-								"type": "text",
-								"value": "{{$guid}}"
-							},
-							{
-								"key": "client-id",
-								"type": "text",
-								"value": "{{client_id}}"
-							},
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderName\": \"{{folder_name}}\",\r\n  \"folderDescription\": \"{{folder_description}} Updated\",\r\n  \"folderIcon\": {{folder_icon}},\r\n  \"parentFolderId\": \"{{parent_folder_id}}\"\r\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"folders",
-								"{{folder_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Folder",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Requester",
-								"value": "{{requester_registry}}:{{requester_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Subject",
-								"value": "{{subject_registry}}:{{subject_id}}",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"folders",
-								"{{folder_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Share Folder",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canAdd\": false,\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"folders",
-								"{{folder_id}}",
-								"share",
-								"{{shared_user_registry}}",
-								"{{shared_user_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Revoke Share Folder",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "requester",
-								"value": "{{requester_registry}}:{{requester_id}}",
-								"type": "text"
-							},
-							{
-								"key": "subject",
-								"value": "{{subject_registry}}:{{subject_id}}",
-								"type": "text"
-							},
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"folders",
-								"{{folder_id}}",
-								"share",
-								"{{shared_user_registry}}",
-								"{{shared_user_id}}"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Ethnofiles Integration",
 			"item": [
 				{
@@ -1008,9 +1008,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/populatefiletypes",
+							"raw": "{{ethno_url}}/ethnofiles/populatefiletypes",
 							"host": [
-								"{{url}}"
+								"{{ethno_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1070,49 +1070,6 @@
 					"response": []
 				},
 				{
-					"name": "Validate Ethnofiles Filename",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							},
-							{
-								"key": "sandbox_id",
-								"type": "text",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\":\"{{user_id}}\",\n        \"fileTypeId\": {{file_type_id}},\n        \"fileName\": \"{{file_name}}\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/validation/filename",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"validation",
-								"filename"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Validate Ethnofiles File",
 					"request": {
 						"method": "POST",
@@ -1126,11 +1083,6 @@
 								"key": "sandbox_id",
 								"type": "text",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
 							}
 						],
 						"body": {
@@ -1156,82 +1108,24 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Customer Applications (incoming)",
+					"name": "Validate Ethnofiles Filename",
 					"request": {
 						"method": "POST",
 						"header": [
-							{
-								"key": "sandbox_id",
-								"type": "text",
-								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "client-id",
-								"type": "text",
-								"value": "{{client_id}}"
-							},
-							{
-								"key": "Request-Id",
-								"type": "text",
-								"value": "{{$guid}}"
-							},
 							{
 								"key": "Content-Type",
 								"type": "text",
 								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 0\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/retrievecustomerapplications",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"retrievecustomerapplications"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Customer Applications (outgoing)",
-					"request": {
-						"method": "POST",
-						"header": [
+							},
 							{
 								"key": "sandbox_id",
 								"type": "text",
 								"value": "{{sandbox_id}}"
-							},
-							{
-								"key": "client-id",
-								"type": "text",
-								"value": "{{client_id}}"
-							},
-							{
-								"key": "Request-Id",
-								"type": "text",
-								"value": "{{$guid}}"
-							},
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 1\r\n    }\r\n}",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n    \t\"userId\":\"{{user_id}}\",\n        \"fileTypeId\": {{file_type_id}},\n        \"fileName\": \"{{file_name}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1239,296 +1133,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrievecustomerapplications",
+							"raw": "{{url}}/validation/filename",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"ethnofiles",
-								"retrievecustomerapplications"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Files (incoming)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 0,\r\n        \"isHistorical\": false,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"retrieveFileList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Files (outgoing)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 1,\r\n        \"isHistorical\": false,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"retrieveFileList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Files (outgoing historical)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 1,\r\n        \"isHistorical\": true,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"retrieveFileList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve Files (incoming historical)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 0,\r\n        \"isHistorical\": true,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"retrieveFileList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve File",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"customerApplicationFileId\": {{customer_application_file_id}}, \r\n        \"fileDirection\": {{file_direction}}\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/retrievefile",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"retrievefile"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Send File",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-Id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"customerApplicationId\": {{customer_application_id}},\r\n        \"fileId\": \"{{file_id}}\",\r\n        \"filename\": \"{{file_name}}\",\r\n        \"totalRecords\": {{total_records}},\r\n        \"totalAmount\": {{total_amount}}\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "{{url}}/ethnofiles/sendfile",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"ethnofiles",
-								"sendfile"
+								"validation",
+								"filename"
 							]
 						}
 					},
@@ -2084,51 +1695,401 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ethnofiles",
+			"item": [
+				{
+					"name": "Retrieve Customer Applications (incoming)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "client-id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrievecustomerapplications",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrievecustomerapplications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Customer Applications (outgoing)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"type": "text",
+								"value": "{{sandbox_id}}"
+							},
+							{
+								"key": "client-id",
+								"type": "text",
+								"value": "{{client_id}}"
+							},
+							{
+								"key": "Request-Id",
+								"type": "text",
+								"value": "{{$guid}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrievecustomerapplications",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrievecustomerapplications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Files (outgoing)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 1,\r\n        \"isHistorical\": false,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrieveFileList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Files (outgoing historical)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 1,\r\n        \"isHistorical\": true,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrieveFileList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Files (incoming)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 0,\r\n        \"isHistorical\": false,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrieveFileList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Files (incoming historical)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"fileDirection\": 0,\r\n        \"isHistorical\": true,\r\n        \"dateFrom\":\"{{retrieve_file_date_from}}\",\r\n        \"dateTo\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrieveFileList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"customerApplicationFileId\": {{customer_application_file_id}}, \r\n        \"fileDirection\": {{file_direction}},\r\n        \"isHistorical\": {{is_historical}}\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/retrievefile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"retrievefile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"customerApplicationId\": {{customer_application_id}},\r\n        \"fileId\": \"{{file_id}}\",\r\n        \"filename\": \"{{file_name}}\",\r\n        \"totalRecords\": {{total_records}},\r\n        \"totalAmount\": {{total_amount}}\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/ethnofiles/sendfile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ethnofiles",
+								"sendfile"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
 		"type": "oauth2",
 		"oauth2": [
-			{
-				"key": "grant_type",
-				"value": "client_credentials",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "https://my.nbg.gr/identity/connect/token",
-				"type": "string"
-			},
-			{
-				"key": "authUrl",
-				"value": "https://my.nbg.gr/identity/connect/authorize",
-				"type": "string"
-			},
-			{
-				"key": "clientId",
-				"value": "B31D78B2-7C32-49FE-98E9-47D2023EBA48",
-				"type": "string"
-			},
-			{
-				"key": "clientSecret",
-				"value": "F09484D9-3A58-4CF9-AFDA-D34B1188D146",
-				"type": "string"
-			},
-			{
-				"key": "scope",
-				"value": "sandbox-file-api-v4",
-				"type": "string"
-			},
-			{
-				"key": "redirect_uri",
-				"value": "https://www.postman.com/oauth2/callback",
-				"type": "string"
-			},
-			{
-				"key": "tokenName",
-				"value": "Token name",
-				"type": "string"
-			},
 			{
 				"key": "accessToken",
 				"value": "{{access_token}}",
@@ -2150,7 +2111,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "93a0d5c8-0112-4fca-8b91-0cdb679ce0cb",
+				"id": "bcb2d40f-4a2f-4ba5-bfae-6c3f432582b2",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2160,7 +2121,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7936b685-f1cc-4db8-b5d0-0038804d5621",
+				"id": "f91b39b4-a77a-4153-8d59-f86ef02ac3b2",
 				"type": "text/javascript",
 				"exec": [
 					""

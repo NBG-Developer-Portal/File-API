@@ -1008,9 +1008,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{ethno_url}}/ethnofiles/populatefiletypes",
+							"raw": "{{url}}/ethnofiles/populatefiletypes",
 							"host": [
-								"{{ethno_url}}"
+								"{{url}}"
 							],
 							"path": [
 								"ethnofiles",

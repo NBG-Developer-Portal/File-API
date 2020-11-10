@@ -50,9 +50,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/sandbox",
+							"raw": "{{root_url}}/sandbox",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox"
@@ -84,9 +84,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -126,9 +126,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -159,9 +159,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/sandbox/{{sandbox_id}}",
+							"raw": "{{root_url}}/sandbox/{{sandbox_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"sandbox",
@@ -179,6 +179,18 @@
 			"item": [
 				{
 					"name": "Initiate File Upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "069762ee-ad0f-4a7c-bc05-fc24b251b5b7",
+								"exec": [
+									"pm.environment.set(\"file_id\", pm.response.json().fileId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -209,9 +221,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"folderId\": null,\r\n  \"fileName\": \"{{file_name}}\",\r\n  \"fileDescription\": \"{{file_description}}\",\r\n  \"userTags\": [\r\n    {{user_tags}}\r\n  ],\r\n  \"fileSize\": {{file_size}},\r\n  \"metadata\": \"{{metadata}}\",\r\n  \"fileIcon\": null\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/upload-initiation",
+							"raw": "{{root_url}}/files/upload-initiation",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -252,9 +264,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/upload",
+							"raw": "{{root_url}}/files/{{file_id}}/upload",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -297,9 +309,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/{{chunk_part}}",
+							"raw": "{{root_url}}/files/{{file_id}}/{{chunk_part}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -354,9 +366,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -401,9 +413,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -445,9 +457,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -489,9 +501,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"FileStatus\": \"Immutable\"\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/status/{{file_id}}",
+							"raw": "{{root_url}}/files/status/{{file_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -573,9 +585,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/files",
+							"raw": "{{root_url}}/files",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files"
@@ -616,9 +628,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -670,9 +682,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/files/{{file_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"files",
@@ -723,9 +735,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders",
+							"raw": "{{root_url}}/folders",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders"
@@ -736,6 +748,18 @@
 				},
 				{
 					"name": "Create Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0690ff0c-bb48-486b-9b3c-08faa83591db",
+								"exec": [
+									"pm.environment.set(\"folder_id\", pm.response.json().folderId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -769,9 +793,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/folders",
+							"raw": "{{root_url}}/folders",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders"
@@ -815,9 +839,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -859,9 +883,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -903,9 +927,9 @@
 							"raw": "{\r\n  \"requester\": {\r\n    \"id\": \"{{requester_id}}\",\r\n    \"registry\": \"{{requester_registry}}\"\r\n  },\r\n  \"subject\": {\r\n    \"id\": \"{{subject_id}}\",\r\n    \"registry\": \"{{subject_registry}}\"\r\n  },\r\n  \"permissions\": {\r\n    \"canAdd\": false,\r\n    \"canView\": true,\r\n    \"canEditMetadata\": false,\r\n    \"canMove\": false,\r\n    \"canDelete\": false,\r\n    \"canShare\": false\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -950,9 +974,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
+							"raw": "{{root_url}}/folders/{{folder_id}}/share/{{shared_user_registry}}/{{shared_user_id}}",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"folders",
@@ -1008,13 +1032,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/validation/file",
+							"raw": "{{root_url}}/ethnofiles/populatefiletypes",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
-								"validation",
-								"file"
+								"ethnofiles",
+								"populatefiletypes"
 							]
 						}
 					},
@@ -1057,9 +1081,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/sendfiletoethnofiles",
+							"raw": "{{root_url}}/ethnofiles/sendfiletoethnofiles",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1100,9 +1124,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/validation/filename",
+							"raw": "{{root_url}}/validation/filename",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"validation",
@@ -1143,9 +1167,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/validation/file",
+							"raw": "{{root_url}}/validation/file",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"validation",
@@ -1192,56 +1216,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/generatemasspaymentssample",
+							"raw": "{{root_url}}/tpp/generatemasspaymentssample",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
 								"generatemasspaymentssample"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Vaidate Mass Payment File",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "sandbox_id",
-								"value": "{{sandbox_id}}",
-								"type": "text"
-							},
-							{
-								"key": "Request-id",
-								"value": "{{$guid}}",
-								"type": "text"
-							},
-							{
-								"key": "Client-id",
-								"value": "{{client_id}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n      \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"UserID\": \"{{user_id}}\",\n        \"fileId\": \"{{file_id}}\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/tpp/validatemasspaymentsfile",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"tpp",
-								"validatemasspaymentsfile"
 							]
 						}
 					},
@@ -1278,9 +1259,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/masspayments",
+							"raw": "{{root_url}}/tpp/masspayments",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1321,9 +1302,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/retrievemasspaymentsoutcome",
+							"raw": "{{root_url}}/tpp/retrievemasspaymentsoutcome",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1364,9 +1345,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/requestindividualpaymentsstatus",
+							"raw": "{{root_url}}/tpp/requestindividualpaymentsstatus",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
@@ -1407,13 +1388,56 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tpp/retrieveindividualpaymentsstatus",
+							"raw": "{{root_url}}/tpp/retrieveindividualpaymentsstatus",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tpp",
 								"retrieveindividualpaymentsstatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vaidate Mass Payment File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sandbox_id",
+								"value": "{{sandbox_id}}",
+								"type": "text"
+							},
+							{
+								"key": "Request-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							},
+							{
+								"key": "Client-id",
+								"value": "{{client_id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"UserID\": \"{{user_id}}\",\n        \"fileId\": \"{{file_id}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{root_url}}/tpp/validatemasspaymentsfile",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"tpp",
+								"validatemasspaymentsfile"
 							]
 						}
 					},
@@ -1461,9 +1485,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrievecustomerapplications",
+							"raw": "{{root_url}}/ethnofiles/retrievecustomerapplications",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1509,9 +1533,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrievecustomerapplications",
+							"raw": "{{root_url}}/ethnofiles/retrievecustomerapplications",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1562,9 +1586,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"raw": "{{root_url}}/ethnofiles/retrieveFileList",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1610,9 +1634,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"raw": "{{root_url}}/ethnofiles/retrieveFileList",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1658,9 +1682,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"raw": "{{root_url}}/ethnofiles/retrieveFileList",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1706,9 +1730,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrieveFileList",
+							"raw": "{{root_url}}/ethnofiles/retrieveFileList",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1754,9 +1778,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/retrievefile",
+							"raw": "{{root_url}}/ethnofiles/retrievefile",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1797,9 +1821,9 @@
 							"raw": "{\r\n    \"header\": {\r\n        \"ID\": \"{{$guid}}\",\r\n        \"application\": \"{{client_id}}\"\r\n    },\r\n    \"payload\": {\r\n        \"userId\": \"{{user_id}}\",\r\n        \"customerApplicationId\": {{customer_application_id}},\r\n        \"fileId\": \"{{file_id}}\",\r\n        \"filename\": \"{{file_name}}\",\r\n        \"totalRecords\": {{total_records}},\r\n        \"totalAmount\": {{total_amount}}\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/ethnofiles/sendfile",
+							"raw": "{{root_url}}/ethnofiles/sendfile",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"ethnofiles",
@@ -1838,7 +1862,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n      \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"UserID\": \"{{user_id}}\",\n        \"FileFormat\": \"{{file_format}}\"\n    }\n}",
+							"raw": "{\n      \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"UserID\": \"{{user_id}}\",\n        \"FileFormat\": \"CSV\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1846,9 +1870,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/massiveTransfers/generateMassTransfersSample",
+							"raw": "{{root_url}}/massiveTransfers/generateMassTransfersSample",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"massiveTransfers",
@@ -1891,7 +1915,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"account\": \"04054685740\",\n        \"fileId\": \"{{file_id}}\",\n        \"fileType\": \"{{file_format}}\",\n        \"isPayRoll\": false        \n    }\n}\n",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"account\": \"04054685740\",\n        \"fileId\": \"{{file_id}}\",\n        \"fileType\": \"CSV\",\n        \"isPayRoll\": false        \n    }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1899,9 +1923,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/massiveTransfers/verifyFile",
+							"raw": "{{root_url}}/massiveTransfers/verifyFile",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"massiveTransfers",
@@ -1944,7 +1968,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"fileId\": \"{{file_id}}\",\n        \"debitAccount\": \"\",\n        \"fileName\": \"\",\n        \"fileType\": \"\",\n        \"totalAmount\": 0,\n        \"totalRecords\": 0,\n        \"isPayRoll\": false\n    }\n}",
+							"raw": "{\n    \"header\": {\n        \"ID\": \"{{$guid}}\",\n        \"application\": \"{{client_id}}\"\n    },\n    \"payload\": {\n        \"userId\": \"{{user_id}}\",\n        \"fileId\": \"{{file_id}}\",\n        \"debitAccount\": \"04054685740\",\n        \"fileName\": \"{{file_name}}\",\n        \"fileType\": \"CSV\",\n        \"totalAmount\": 0,\n        \"totalRecords\": 0,\n        \"isPayRoll\": false\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1952,9 +1976,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/massiveTransfers/payFile",
+							"raw": "{{root_url}}/massiveTransfers/payFile",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"massiveTransfers",
@@ -1995,9 +2019,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/massiveTransfers/retrieveMassTransfersOutcomeCredit",
+							"raw": "{{root_url}}/massiveTransfers/retrieveMassTransfersOutcomeCredit",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"massiveTransfers",
@@ -2038,9 +2062,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/massiveTransfers/getMassFiles",
+							"raw": "{{root_url}}/massiveTransfers/getMassFiles",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"massiveTransfers",
@@ -2081,9 +2105,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/massiveTransfers/getMassFileDetails",
+							"raw": "{{root_url}}/massiveTransfers/getMassFileDetails",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"massiveTransfers",
@@ -2100,36 +2124,6 @@
 	"auth": {
 		"type": "oauth2",
 		"oauth2": [
-			{
-				"key": "tokenName",
-				"value": "Token name",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "https://my.nbg.gr/identity/connect/token",
-				"type": "string"
-			},
-			{
-				"key": "clientId",
-				"value": "B31D78B2-7C32-49FE-98E9-47D2023EBA48",
-				"type": "string"
-			},
-			{
-				"key": "clientSecret",
-				"value": "F09484D9-3A58-4CF9-AFDA-D34B1188D146",
-				"type": "string"
-			},
-			{
-				"key": "scope",
-				"value": "sandbox-file-api-v4",
-				"type": "string"
-			},
-			{
-				"key": "grant_type",
-				"value": "client_credentials",
-				"type": "string"
-			},
 			{
 				"key": "accessToken",
 				"value": "{{access_token}}",
